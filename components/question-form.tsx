@@ -110,6 +110,7 @@ export default function QuestionForm({ tryoutId, initialData, onSuccess }: Quest
         router.refresh()
       }
     } catch (err) {
+      router.push(`/tryouts/${tryoutId}/questions`)
       setError(err instanceof Error ? err.message : "An error occurred")
     } finally {
       setIsSubmitting(false)

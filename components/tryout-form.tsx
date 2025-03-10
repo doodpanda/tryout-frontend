@@ -94,6 +94,7 @@ export default function TryoutForm({ initialData, categories, difficulties, onSu
         router.refresh()
       }
     } catch (err) {
+      router.push("/tryouts")
       setError(err instanceof Error ? err.message : "An error occurred")
     } finally {
       setIsSubmitting(false)
