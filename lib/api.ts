@@ -53,11 +53,9 @@ export interface TryoutFilters {
   search?: string
 }
 
-function getAuthHeaders() {
-  const token = window.localStorage.getItem("token");
+function getAuthHeaders(token?: string): Record<string, string> {
   return {
-    "Content-Type": "application/json",
-    "Authorization": `Bearer ${token}`
+    "Content-Type": "application/json"
   };
 }
 
