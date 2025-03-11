@@ -1,6 +1,6 @@
 "use client"
 
-import { useState, useEffect } from "react"
+import { useState, useEffect, use } from "react";
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
@@ -18,7 +18,8 @@ import {
   AlertDialogTitle,
 } from "@/components/ui/alert-dialog"
 
-export default function QuestionsPage({ params }: { params: { id: string } }) {
+export default function QuestionsPage(props: { params: Promise<{ id: string }> }) {
+  const params = use(props.params);
   const tryoutId = params.id
 
   const [questions, setQuestions] = useState<Question[]>([])

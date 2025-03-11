@@ -1,6 +1,6 @@
 "use client"
 
-import { useState, useEffect } from "react"
+import { useState, useEffect, use } from "react";
 import { useRouter } from "next/navigation"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
@@ -11,7 +11,8 @@ import DeleteTryoutDialog from "@/components/delete-tryout-dialog"
 import { type Tryout, fetchTryoutById } from "@/lib/api"
 import Link from "next/link"
 
-export default function TryoutDetailPage({ params }: { params: { id: string } }) {
+export default function TryoutDetailPage(props: { params: Promise<{ id: string }> }) {
+  const params = use(props.params);
   const router = useRouter()
   const tryoutId = params.id
 
