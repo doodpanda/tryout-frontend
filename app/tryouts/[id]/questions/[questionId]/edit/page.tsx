@@ -3,12 +3,11 @@ import QuestionForm from "@/components/question-form"
 import { notFound } from "next/navigation"
 import Link from "next/link"
 
-export default async function EditQuestionPage(
-  props: {
-    params: Promise<{ id: string; questionId: string }>
-  }
-) {
-  const params = await props.params;
+export default async function EditQuestionPage({
+  params,
+}: {
+  params: { id: string; questionId: string }
+}) {
   const tryoutId = params.id
   const questionId = params.questionId
 

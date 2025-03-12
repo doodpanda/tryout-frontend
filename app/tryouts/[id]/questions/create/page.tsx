@@ -3,8 +3,7 @@ import QuestionForm from "@/components/question-form"
 import { notFound } from "next/navigation"
 import Link from "next/link"
 
-export default async function CreateQuestionPage(props: { params: Promise<{ id: string }> }) {
-  const params = await props.params;
+export default async function CreateQuestionPage({ params }: { params: { id: string } }) {
   const tryoutId = params.id
   try {
     const tryout = await fetchTryoutById(tryoutId)

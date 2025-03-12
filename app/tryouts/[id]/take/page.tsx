@@ -1,7 +1,7 @@
 "use client"
 
 import { Badge } from "@/components/ui/badge"
-import { useState, useEffect, use } from "react";
+import { useState, useEffect } from "react"
 import { useRouter } from "next/navigation"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
@@ -11,8 +11,7 @@ import { type Question, type Tryout, fetchQuestions, fetchTryoutById } from "@/l
 import Link from "next/link"
 import { motion, AnimatePresence } from "framer-motion"
 
-export default function TakeTryoutPage(props: { params: Promise<{ id: string }> }) {
-  const params = use(props.params);
+export default function TakeTryoutPage({ params }: { params: { id: string } }) {
   const router = useRouter()
   const tryoutId = params.id
 

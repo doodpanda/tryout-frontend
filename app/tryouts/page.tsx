@@ -4,14 +4,12 @@ import { Plus } from "lucide-react"
 import TryoutFilter from "@/components/tryout-filter"
 import { fetchTryouts, fetchCategories, fetchDifficulties, type TryoutFilters } from "@/lib/api"
 import TryoutCard from "@/components/tryout-card"
-import { useEffect, useState } from "react"
 
 interface TryoutsPageProps {
-  searchParams: Promise<{ [key: string]: string | string[] | undefined }>
+  searchParams: { [key: string]: string | string[] | undefined }
 }
 
-export default async function TryoutsPage(props: TryoutsPageProps) {
-  const searchParams = await props.searchParams;
+export default async function TryoutsPage({ searchParams }: TryoutsPageProps) {
   const filters: TryoutFilters = {
     category: typeof searchParams.category === "string" ? searchParams.category : undefined,
     difficulty: typeof searchParams.difficulty === "string" ? searchParams.difficulty : undefined,
@@ -23,7 +21,7 @@ export default async function TryoutsPage(props: TryoutsPageProps) {
     fetchTryouts(filters),
     fetchCategories(),
     fetchDifficulties(),
-  ]);
+  ])
 
   return (
     <div className="container py-10">

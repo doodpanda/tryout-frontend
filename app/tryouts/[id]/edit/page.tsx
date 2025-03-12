@@ -3,8 +3,7 @@ import TryoutForm from "@/components/tryout-form"
 import { notFound } from "next/navigation"
 import Link from "next/link"
 
-export default async function EditTryoutPage(props: { params: Promise<{ id: string }> }) {
-  const params = await props.params;
+export default async function EditTryoutPage({ params }: { params: { id: string } }) {
   const tryoutId = params.id
 
   try {
